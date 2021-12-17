@@ -11,6 +11,10 @@ def isocodesline_to_list(line):
 
 
 def get_country_list():
+    return isocodesline_to_list(country_isocodesline)
+
+
+def get_country_names():
     countrycode_list = isocodesline_to_list(country_isocodesline)
     world_countries = json.load(open(os.path.join(os.path.dirname(__file__), 'world_country_list.json')))
     country_list = filter(lambda e: e['Code'].lower() in countrycode_list, world_countries)
